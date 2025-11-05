@@ -286,6 +286,7 @@ void VulkanEngine::draw()
 
     //increase the number of frames drawn
     _frameNumber++;
+    //< draw_6
 }
 
 void VulkanEngine::run()
