@@ -94,6 +94,14 @@ public:
 	//draw resources
 	AllocatedImage _drawImage;
 	VkExtent2D _drawExtent;
+
+	DescriptorAllocator globalDescriptorAllocator;
+
+	VkDescriptorSet _drawImageDescriptors;
+	VkDescriptorSetLayout _drawImageDescriptorLayout;
+
+	VkPipeline _gradientPipeline;
+	VkPipelineLayout _gradientPipelineLayout;
 private:
 	void init_vulkan();
 	void init_swapchain();
@@ -101,5 +109,8 @@ private:
 	void init_sync_structures();
 	void create_swapchain(uint32_t width, uint32_t height);
 	void destroy_swapchain();
+	void init_descriptors();
+	void init_pipelines();
+	void init_background_pipelines();
 };
 
