@@ -62,6 +62,9 @@ public:
 	//draw background
 	void draw_background(VkCommandBuffer cmd);
 
+	//draw imgui
+	void draw_imgui(VkCommandBuffer cmd, VkImageView targetImageView);
+
 	//> inst_init
 	VkInstance _instance; // Vulkan library handle
 	VkDebugUtilsMessengerEXT _debug_messenger; // Vulkan debug output handle
@@ -104,6 +107,13 @@ public:
 	VkPipeline _gradientPipeline;
 	VkPipelineLayout _gradientPipelineLayout;
 
+	//immediate submit structures
+	VkFence _immFence;
+	VkCommandBuffer _immCommandBuffer;
+	VkCommandPool _immCommandPool;
+
+	void immediate_submit(std::function<void(VkCommandBuffer cmd)>&& function);
+
 private:
 	void init_vulkan();
 	void init_swapchain();
@@ -114,5 +124,6 @@ private:
 	void init_descriptors();
 	void init_pipelines();
 	void init_background_pipelines();
+	void init_imgui();
 };
 
