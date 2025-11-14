@@ -81,6 +81,8 @@ public:
 	//draw imgui
 	void draw_imgui(VkCommandBuffer cmd, VkImageView targetImageView);
 
+	void draw_geometry(VkCommandBuffer cmd);
+
 	//> inst_init
 	VkInstance _instance; // Vulkan library handle
 	VkDebugUtilsMessengerEXT _debug_messenger; // Vulkan debug output handle
@@ -133,6 +135,9 @@ public:
 	std::vector<ComputeEffect> backgroundEffects;
 	int currentBackgroundEffect{ 0 };
 
+	VkPipelineLayout _trianglePipelineLayout;
+	VkPipeline _trianglePipeline;
+
 private:
 	void init_vulkan();
 	void init_swapchain();
@@ -144,5 +149,6 @@ private:
 	void init_pipelines();
 	void init_background_pipelines();
 	void init_imgui();
+	void init_triangle_pipeline();
 };
 
