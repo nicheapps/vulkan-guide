@@ -704,7 +704,7 @@ void VulkanEngine::draw_geometry(VkCommandBuffer cmd) {
     viewport.x = 0;
     viewport.y = 0;
     viewport.width = _drawExtent.width;
-    viewport.width = _drawExtent.height;
+    viewport.height = _drawExtent.height;
     viewport.minDepth = 0.f;
     viewport.maxDepth = 1.f;
 
