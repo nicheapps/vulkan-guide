@@ -143,6 +143,11 @@ public:
 
 	GPUMeshBuffers uploadMesh(std::span<uint32_t> indices, std::span<Vertex> vertices);
 
+	VkPipelineLayout _meshPipelineLayout;
+	VkPipeline _meshPipeline;
+
+	GPUMeshBuffers rectangle;
+
 private:
 	void init_vulkan();
 	void init_swapchain();
@@ -156,5 +161,7 @@ private:
 	void init_imgui();
 	void init_triangle_pipeline();
 	void destroy_buffer(const AllocatedBuffer& buffer);
+	void init_mesh_pipeline();
+	void init_default_data();
 };
 
