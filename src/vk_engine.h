@@ -5,6 +5,7 @@
 
 #include <vk_types.h>
 #include <vk_descriptors.h>
+#include <vk_loader.h>
 
 struct DeletionQueue {
 	std::deque<std::function<void()>> deletors;
@@ -116,6 +117,7 @@ public:
 
 	//draw resources
 	AllocatedImage _drawImage;
+	AllocatedImage _depthImage;
 	VkExtent2D _drawExtent;
 
 	DescriptorAllocator globalDescriptorAllocator;
@@ -147,6 +149,8 @@ public:
 	VkPipeline _meshPipeline;
 
 	GPUMeshBuffers rectangle;
+
+	std::vector<std::shared_ptr<MeshAsset>> testMeshes;
 
 private:
 	void init_vulkan();
