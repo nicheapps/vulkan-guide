@@ -119,6 +119,7 @@ public:
 	AllocatedImage _drawImage;
 	AllocatedImage _depthImage;
 	VkExtent2D _drawExtent;
+	float renderScale = 1.f;
 
 	DescriptorAllocator globalDescriptorAllocator;
 
@@ -152,6 +153,8 @@ public:
 
 	std::vector<std::shared_ptr<MeshAsset>> testMeshes;
 
+	bool resize_requested;
+
 private:
 	void init_vulkan();
 	void init_swapchain();
@@ -167,5 +170,6 @@ private:
 	void destroy_buffer(const AllocatedBuffer& buffer);
 	void init_mesh_pipeline();
 	void init_default_data();
+	void resize_swapchain();
 };
 
