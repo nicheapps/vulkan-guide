@@ -481,7 +481,7 @@ void VulkanEngine::init_mesh_pipeline() {
     }
 
     VkShaderModule triangleVertexShader;
-    if (!vkutil::load_shader_module("../../shaders/colored_triangle.vert.spv", _device, &triangleVertexShader)) {
+    if (!vkutil::load_shader_module("../../shaders/colored_triangle_mesh.vert.spv", _device, &triangleVertexShader)) {
         fmt::print("Error when building the triangle vertex shader module");
     }
     else {
