@@ -64,3 +64,12 @@ struct GPUDrawPushConstants {
     glm::mat4 worldMatrix;
     VkDeviceAddress vertexBuffer;
 };
+
+struct GPUSceneData {
+    glm::mat4 view;
+    glm::mat4 proj;
+    glm::mat4 viewproj;
+    glm::mat4 ambientColor;
+    glm::mat4 sunlightDirection; // w for sun power
+    glm::vec4 sunlightColor;
+};

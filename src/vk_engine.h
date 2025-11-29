@@ -32,6 +32,7 @@ struct FrameData {
 	VkCommandBuffer _mainCommandBuffer;
 
 	DeletionQueue _deletionQueue;
+	DescriptorAllocatorGrowable _frameDescriptors;
 };
 
 struct ComputePushConstants {
@@ -154,6 +155,10 @@ public:
 	std::vector<std::shared_ptr<MeshAsset>> testMeshes;
 
 	bool resize_requested;
+
+	GPUSceneData sceneData;
+
+	VkDescriptorSetLayout _gpuSceneDataDescriptorLayout;
 
 private:
 	void init_vulkan();
